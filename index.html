@@ -3,29 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>MakeReal</title>
+  <meta name="theme-color" content="#0b0b0a" />
+  <meta name="description" content="MakeReal helps you turn ideas into real next steps, using the resources you already have." />
+  <title>MakeReal — Try ideas. Learn from failure. Build better.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
+  <div class="ambient ambient-one" aria-hidden="true"></div>
+  <div class="ambient ambient-two" aria-hidden="true"></div>
+
   <main class="app-shell">
     <header class="topbar">
-      <div>
-        <p class="eyebrow">MAKE REAL</p>
-        <h1>Turn an idea into the next real step.</h1>
+      <a class="brand" href="#" aria-label="MakeReal home" data-brand>
+        <span class="brand-mark">+</span>
+        <span>MAKE<span>REAL</span></span>
+      </a>
+      <div class="topbar-right">
+        <p class="floating-note note-one">try → learn → build</p>
+        <button id="resetBtn" class="ghost-button" type="button">Reset project</button>
       </div>
-      <button id="resetBtn" class="ghost-button" type="button">Reset</button>
     </header>
+
+    <section class="hero-intro" aria-labelledby="heroTitle">
+      <div class="hero-copy">
+        <p class="eyebrow yellow">BUILD IN PUBLIC WITH REALITY</p>
+        <h1 id="heroTitle">Turn an idea into<br /><span>the next real step.</span></h1>
+        <p class="hero-subtitle">Try ideas. Learn from failure. Build better.</p>
+      </div>
+      <div class="manifesto" aria-label="MakeReal philosophy">
+        <span class="manifesto-line"></span>
+        <p>MakeReal does not try to eliminate failure.<br /><strong>It makes failure cheap, useful, and learnable.</strong></p>
+        <span class="manifesto-tag">DON'T AVOID FAILURE. MAKE FAILURE USEFUL.</span>
+      </div>
+    </section>
 
     <section id="workspace" class="workspace">
       <aside class="sidebar">
-        <nav aria-label="Project stages">
-          <button class="nav-item active" data-section="idea" type="button">01 · Idea</button>
-          <button class="nav-item" data-section="resources" type="button">02 · Resources</button>
-          <button class="nav-item" data-section="plan" type="button">03 · Plan</button>
-        </nav>
+        <div>
+          <p class="sidebar-label">YOUR BUILD</p>
+          <nav aria-label="Project stages">
+            <button class="nav-item active" data-section="idea" type="button">
+              <span class="nav-number">01</span><span>Idea</span><span class="nav-arrow">↗</span>
+            </button>
+            <button class="nav-item" data-section="resources" type="button">
+              <span class="nav-number">02</span><span>Resources</span><span class="nav-arrow">↗</span>
+            </button>
+            <button class="nav-item" data-section="plan" type="button">
+              <span class="nav-number">03</span><span>First plan</span><span class="nav-arrow">↗</span>
+            </button>
+          </nav>
+        </div>
         <div class="principle">
-          <span>MAKE REAL</span>
-          <p>Don't avoid failure. Make failure useful.</p>
+          <span class="principle-dot">●</span>
+          <span class="principle-label">THE RULE</span>
+          <p>Small moves create evidence. Evidence changes the plan.</p>
         </div>
       </aside>
 
@@ -34,15 +68,19 @@
           <div class="stage-heading">
             <span class="step-number">01</span>
             <div>
-              <p class="eyebrow">START HERE</p>
+              <p class="eyebrow">START WITH THE IDEA</p>
               <h2>What do you want to make?</h2>
             </div>
           </div>
-          <label for="projectName">Project name</label>
-          <input id="projectName" type="text" placeholder="e.g. Home Laptop Repair" />
+          <p class="stage-intro">Don't polish it yet. Give us the rough version. MakeReal will help you find the next thing worth testing.</p>
+          <label for="projectName">Project name <span>optional</span></label>
+          <input id="projectName" type="text" maxlength="80" placeholder="e.g. Home Laptop Repair" autocomplete="off" />
           <label for="ideaInput">Your idea</label>
-          <textarea id="ideaInput" rows="7" placeholder="Describe the thing you want to make in your own words..."></textarea>
-          <button id="ideaNext" class="primary-button" type="button">Continue →</button>
+          <textarea id="ideaInput" maxlength="2000" rows="7" placeholder="Describe the thing you want to make in your own words..."></textarea>
+          <div class="form-footer">
+            <span class="micro-copy">No perfect pitch required.</span>
+            <button id="ideaNext" class="primary-button" type="button">Start making <span>→</span></button>
+          </div>
         </div>
 
         <div id="resourcesSection" class="stage hidden">
@@ -53,7 +91,7 @@
               <h2>What resources do you already have?</h2>
             </div>
           </div>
-          <p class="muted">Money is only one resource. Add anything that can help you move.</p>
+          <p class="stage-intro">Money is only one resource. Time, skills, people, knowledge, equipment and an audience can all move an idea forward.</p>
           <div id="resourceList" class="resource-list"></div>
           <div class="resource-form">
             <select id="resourceType" aria-label="Resource type">
@@ -66,10 +104,13 @@
               <option value="audience">Audience</option>
               <option value="other">Other</option>
             </select>
-            <input id="resourceInput" type="text" placeholder="e.g. 2 hours every evening" />
-            <button id="addResource" class="secondary-button" type="button">Add</button>
+            <input id="resourceInput" type="text" maxlength="160" placeholder="e.g. 2 hours every evening" autocomplete="off" />
+            <button id="addResource" class="secondary-button" type="button">Add <span>+</span></button>
           </div>
-          <button id="resourceNext" class="primary-button" type="button">Build my first plan →</button>
+          <div class="form-footer">
+            <span class="micro-copy">Start from reality, not fantasy.</span>
+            <button id="resourceNext" class="primary-button" type="button">Build my first plan <span>→</span></button>
+          </div>
         </div>
 
         <div id="planSection" class="stage hidden">
@@ -81,11 +122,21 @@
             </div>
           </div>
           <div id="projectSummary" class="summary-card"></div>
+          <div class="plan-heading-row">
+            <span class="eyebrow">THREE SMALL MOVES</span>
+            <span class="floating-chip">EVIDENCE &gt; ASSUMPTIONS</span>
+          </div>
           <div id="planList" class="plan-list"></div>
           <div id="nextAction" class="next-action"></div>
         </div>
       </section>
     </section>
+
+    <footer class="footer-manifesto">
+      <span>MAKE REAL</span>
+      <p>Try ideas. Learn from failure. Build better.</p>
+      <span>01 → 02 → 03 → repeat</span>
+    </footer>
   </main>
   <script src="app.js"></script>
 </body>
