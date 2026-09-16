@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>MakeReal</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">MAKE REAL</p>
+        <h1>Turn an idea into the next real step.</h1>
+      </div>
+      <button id="resetBtn" class="ghost-button" type="button">Reset</button>
+    </header>
+
+    <section id="workspace" class="workspace">
+      <aside class="sidebar">
+        <nav aria-label="Project stages">
+          <button class="nav-item active" data-section="idea" type="button">01 · Idea</button>
+          <button class="nav-item" data-section="resources" type="button">02 · Resources</button>
+          <button class="nav-item" data-section="plan" type="button">03 · Plan</button>
+        </nav>
+        <div class="principle">
+          <span>MAKE REAL</span>
+          <p>Don't avoid failure. Make failure useful.</p>
+        </div>
+      </aside>
+
+      <section class="content">
+        <div id="ideaSection" class="stage">
+          <div class="stage-heading">
+            <span class="step-number">01</span>
+            <div>
+              <p class="eyebrow">START HERE</p>
+              <h2>What do you want to make?</h2>
+            </div>
+          </div>
+          <label for="projectName">Project name</label>
+          <input id="projectName" type="text" placeholder="e.g. Home Laptop Repair" />
+          <label for="ideaInput">Your idea</label>
+          <textarea id="ideaInput" rows="7" placeholder="Describe the thing you want to make in your own words..."></textarea>
+          <button id="ideaNext" class="primary-button" type="button">Continue →</button>
+        </div>
+
+        <div id="resourcesSection" class="stage hidden">
+          <div class="stage-heading">
+            <span class="step-number">02</span>
+            <div>
+              <p class="eyebrow">START WITH WHAT YOU HAVE</p>
+              <h2>What resources do you already have?</h2>
+            </div>
+          </div>
+          <p class="muted">Money is only one resource. Add anything that can help you move.</p>
+          <div id="resourceList" class="resource-list"></div>
+          <div class="resource-form">
+            <select id="resourceType" aria-label="Resource type">
+              <option value="time">Time</option>
+              <option value="money">Money</option>
+              <option value="skill">Skill</option>
+              <option value="knowledge">Knowledge</option>
+              <option value="people">People</option>
+              <option value="equipment">Equipment</option>
+              <option value="audience">Audience</option>
+              <option value="other">Other</option>
+            </select>
+            <input id="resourceInput" type="text" placeholder="e.g. 2 hours every evening" />
+            <button id="addResource" class="secondary-button" type="button">Add</button>
+          </div>
+          <button id="resourceNext" class="primary-button" type="button">Build my first plan →</button>
+        </div>
+
+        <div id="planSection" class="stage hidden">
+          <div class="stage-heading">
+            <span class="step-number">03</span>
+            <div>
+              <p class="eyebrow">MAKE A MOVE</p>
+              <h2>Your first plan</h2>
+            </div>
+          </div>
+          <div id="projectSummary" class="summary-card"></div>
+          <div id="planList" class="plan-list"></div>
+          <div id="nextAction" class="next-action"></div>
+        </div>
+      </section>
+    </section>
+  </main>
+  <script src="app.js"></script>
+</body>
+</html>
