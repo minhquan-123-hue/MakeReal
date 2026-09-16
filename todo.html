@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b0b0a" />
+  <title>MakeReal — Product TODO</title>
+  <style>
+    :root { --bg:#0b0b0a; --panel:#141412; --text:#f5f2e9; --muted:#9b988e; --yellow:#f5c542; --line:#2a2925; }
+    * { box-sizing:border-box; }
+    body { margin:0; background:var(--bg); color:var(--text); font:16px/1.6 system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif; }
+    main { width:min(900px,92vw); margin:0 auto; padding:64px 0 80px; }
+    header { margin-bottom:42px; }
+    .eyebrow { color:var(--yellow); font-size:12px; font-weight:700; letter-spacing:.16em; }
+    h1 { font-size:clamp(40px,7vw,72px); line-height:1; margin:12px 0; }
+    .subtitle { color:var(--muted); max-width:650px; font-size:18px; }
+    .loop { display:flex; flex-wrap:wrap; gap:8px; margin:28px 0 48px; }
+    .loop span { border:1px solid var(--line); padding:7px 11px; border-radius:999px; color:var(--muted); }
+    .loop span.active { color:var(--bg); background:var(--yellow); border-color:var(--yellow); font-weight:700; }
+    section { background:var(--panel); border:1px solid var(--line); border-radius:18px; padding:26px; margin:16px 0; }
+    .stage-head { display:flex; justify-content:space-between; gap:16px; align-items:flex-start; }
+    h2 { margin:0 0 4px; font-size:25px; }
+    .status { color:var(--yellow); font-size:12px; font-weight:700; letter-spacing:.08em; }
+    ul { list-style:none; padding:0; margin:22px 0 0; }
+    li { padding:13px 0; border-top:1px solid var(--line); display:flex; gap:12px; }
+    li.done { color:var(--muted); text-decoration:line-through; }
+    .box { width:18px; height:18px; border:1px solid var(--muted); border-radius:4px; flex:0 0 auto; margin-top:4px; }
+    .done .box { background:var(--yellow); border-color:var(--yellow); }
+    .next { border-color:var(--yellow); }
+    .next strong { color:var(--yellow); }
+    footer { color:var(--muted); margin-top:40px; font-size:13px; }
+    a { color:var(--yellow); }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <div class="eyebrow">MAKEREAL / PRODUCT TODO</div>
+      <h1>Build the product.<br>Learn from reality.</h1>
+      <p class="subtitle">The working roadmap for MakeReal. We move through one loop: <strong>Research → Design → MVP → Marketing → User → Money → Improve → Repeat.</strong></p>
+      <div class="loop" aria-label="Product loop">
+        <span class="active">Research</span><span>Design</span><span>MVP</span><span>Marketing</span><span>User</span><span>Money</span><span>Improve</span><span>Repeat</span>
+      </div>
+    </header>
+
+    <section>
+      <div class="stage-head"><div><h2>01 · Research</h2><div>Understand the problem before expanding the product.</div></div><div class="status">CURRENT</div></div>
+      <ul>
+        <li class="done"><span class="box"></span><span>Define MakeReal's core philosophy: make failure cheap, useful, and learnable.</span></li>
+        <li class="done"><span class="box"></span><span>Define the core loop: IDEA → Resources → Small Test → Action → Evidence → Learn → Update.</span></li>
+        <li class="done"><span class="box"></span><span>Build the first small prototype around idea → resources → first plan → action.</span></li>
+        <li><span class="box"></span><span>Research the real problem: how people currently evaluate and test new ideas.</span></li>
+        <li><span class="box"></span><span>Talk to the first real users and record their current workflow, pain points, and language.</span></li>
+        <li><span class="box"></span><span>Identify the smallest useful outcome MakeReal should create for a user.</span></li>
+        <li><span class="box"></span><span>Write down the evidence and change the product hypothesis if reality disagrees.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="stage-head"><div><h2>02 · Design</h2><div>Turn the research into a simple product experience.</div></div><div class="status">NEXT</div></div>
+      <ul>
+        <li><span class="box"></span><span>Define the first user journey from idea to a real-world test.</span></li>
+        <li><span class="box"></span><span>Design the minimum screens and interactions needed for that journey.</span></li>
+        <li><span class="box"></span><span>Keep the product focused on the next useful action, not a giant business-analysis report.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="stage-head"><div><h2>03 · MVP</h2><div>Build only what is needed to test the product hypothesis.</div></div><div class="status">LATER</div></div>
+      <ul>
+        <li><span class="box"></span><span>Improve the existing prototype based on research evidence.</span></li>
+        <li><span class="box"></span><span>Run the complete core loop with a small number of real users.</span></li>
+        <li><span class="box"></span><span>Do not add infrastructure, AI, or complexity until it is justified by a real need.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="stage-head"><div><h2>04 · Marketing</h2><div>Get the product in front of people who actually have the problem.</div></div><div class="status">LATER</div></div>
+      <ul>
+        <li><span class="box"></span><span>Write a simple explanation of what MakeReal helps someone do.</span></li>
+        <li><span class="box"></span><span>Find the first small distribution channel.</span></li>
+        <li><span class="box"></span><span>Bring the first users into the product without trying to scale.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="stage-head"><div><h2>05 · User</h2><div>Observe what people actually do.</div></div><div class="status">LATER</div></div>
+      <ul>
+        <li><span class="box"></span><span>Watch users complete the core journey.</span></li>
+        <li><span class="box"></span><span>Collect confusion, drop-offs, repeated requests, and useful behavior.</span></li>
+        <li><span class="box"></span><span>Separate what users say from what users actually do.</span></li>
+      </ul>
+    </section>
+
+    <section>
+      <div class="stage-head"><div><h2>06 · Money</h2><div>Discover whether the value can support a business.</div></div><div class="status">LATER</div></div>
+      <ul>
+        <li><span class="box"></span><span>Test whether users perceive enough value to pay or otherwise create sustainable value.</span></li>
+        <li><span class="box"></span><span>Choose a simple first business model only after learning what users value.</span></li>
+      </ul>
+    </section>
+
+    <section class="next">
+      <div class="stage-head"><div><h2>07 · Improve → 08 · Repeat</h2><div>Every new piece of evidence changes the next TODO.</div></div><div class="status">PERMANENT LOOP</div></div>
+      <ul>
+        <li><span class="box"></span><span>Review what was learned.</span></li>
+        <li><span class="box"></span><span>Update the product, hypothesis, and priorities.</span></li>
+        <li><span class="box"></span><span>Return to Research when a new unknown becomes important.</span></li>
+      </ul>
+    </section>
+
+    <footer>Last updated: 2026-09-16 · This page is intentionally simple. The TODO changes when the product changes.</footer>
+  </main>
+</body>
+</html>
