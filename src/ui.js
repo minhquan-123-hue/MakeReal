@@ -21,7 +21,10 @@ export function showSection(name) {
     button.classList.toggle('active', button.dataset.section === name);
   });
 
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  const target = sections[name];
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }
 }
 
 // Escapes user-provided text before placing it into innerHTML.
