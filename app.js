@@ -1,4 +1,4 @@
-import { state, resetState } from './src/state.js';
+import { state, resetState, loadState, saveState } from './src/state.js';
 import { $, showSection, renderResources, renderPlan, updateNextAction } from './src/ui.js';
 
 // app.js is the application entry point.
@@ -6,6 +6,20 @@ import { $, showSection, renderResources, renderPlan, updateNextAction } from '.
 // Its job is orchestration: connect user events to state, domain logic,
 // and rendering. Keeping this file thin gives future features a clear home
 // without turning the browser entry point into one large file.
+
+function hydrateUiFromState() {
+  $('projectName').value = state.projectName;
+  $('ideaInput').value = state.idea;
+
+  if (state.idea || state.resources.length > 0) {
+    renderResources();
+    if (state.idea) {
+      renderPlan();
+    }
+  } else {
+    renderResources();
+  }
+}
 
 // Idea stage: capture the user's rough idea before asking for resources.
 $('ideaNext').addEventListener('click', () => {
@@ -19,6 +33,7 @@ $('ideaNext').addEventListener('click', () => {
 
   state.projectName = projectName || 'My MakeReal Project';
   state.idea = idea;
+  saveState();
   showSection('resources');
   renderResources();
 });
@@ -33,12 +48,14 @@ $('addResource').addEventListener('click', () => {
 
   state.resources.push({ type: $('resourceType').value, value });
   $('resourceInput').value = '';
+  saveState();
   renderResources();
 });
 
 // Move from resources to the first executable plan.
 $('resourceNext').addEventListener('click', () => {
   renderPlan();
+  saveState();
   showSection('plan');
 });
 
@@ -49,6 +66,7 @@ document.addEventListener('click', (event) => {
   if (!removeButton) return;
 
   state.resources.splice(Number(removeButton.dataset.removeResource), 1);
+  saveState();
   renderResources();
 });
 
@@ -60,6 +78,8 @@ document.addEventListener('change', (event) => {
   const index = Number(checkbox.dataset.step);
   if (checkbox.checked) state.completedSteps.add(index);
   else state.completedSteps.delete(index);
+
+  saveState();
   updateNextAction();
 });
 
@@ -82,5 +102,10 @@ $('resetBtn').addEventListener('click', () => {
   showSection('idea');
 });
 
-// Initial render keeps the empty resource state visible on first load.
-renderResources();
+// Load persisted project before the initial render.
+const hasSavedState = loadState();
+if (hasSavedState) {
+  hydrateUiFromState();
+} else {
+  renderResources();
+}
