@@ -7,6 +7,7 @@ export const $ = (id) => document.getElementById(id);
 
 export const sections = {
   idea: $('ideaSection'),
+  research: $('researchSection'),
   resources: $('resourcesSection'),
   plan: $('planSection'),
 };

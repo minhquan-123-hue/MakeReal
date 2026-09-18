@@ -69,6 +69,9 @@ nav { display: grid; gap: 5px; }
 .stage-heading { display: flex; gap: 18px; align-items: flex-start; margin-bottom: 26px; }
 .step-number { display: grid; place-items: center; width: 43px; height: 43px; flex: 0 0 43px; border: 1px solid #4a4739; border-radius: 50%; background: #191813; color: var(--yellow); font-family: "DM Mono", monospace; font-size: 10px; }
 .stage-intro { max-width: 650px; margin: 0 0 28px; color: var(--muted); line-height: 1.65; font-size: 14px; }
+.research-grid { display: grid; gap: 18px; }
+.research-question { padding: 16px; border: 1px solid var(--line); border-radius: 14px; background: #121210; }
+.research-question label { display: block; margin: 0 0 10px; color: var(--soft); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .05em; }
 label { display: block; margin: 21px 0 8px; color: var(--soft); font-family: "DM Mono", monospace; font-size: 10px; letter-spacing: .05em; }
 label span { color: #5d5c56; }
 input, textarea, select { width: 100%; border: 1px solid #2e2e29; border-radius: 12px; background: #0e0e0d; color: var(--white); padding: 14px 15px; outline: none; transition: border-color .2s ease, box-shadow .2s ease, background .2s ease; }

@@ -9,6 +9,7 @@ const STORAGE_KEY = 'makeReal.project.v1';
 export const state = {
   projectName: '',
   idea: '',
+  researchAnswers: {},
   resources: [],
   completedSteps: new Set(),
 };
@@ -17,6 +18,7 @@ export function serializeState() {
   return {
     projectName: state.projectName,
     idea: state.idea,
+    researchAnswers: state.researchAnswers,
     resources: state.resources,
     completedSteps: [...state.completedSteps],
   };
@@ -40,6 +42,7 @@ export function loadState() {
 
     state.projectName = typeof parsed.projectName === 'string' ? parsed.projectName : '';
     state.idea = typeof parsed.idea === 'string' ? parsed.idea : '';
+    state.researchAnswers = parsed.researchAnswers && typeof parsed.researchAnswers === 'object' ? parsed.researchAnswers : {};
     state.resources = Array.isArray(parsed.resources) ? parsed.resources : [];
     state.completedSteps = new Set(Array.isArray(parsed.completedSteps) ? parsed.completedSteps : []);
 
@@ -55,6 +58,7 @@ export function loadState() {
 export function resetState() {
   state.projectName = '';
   state.idea = '';
+  state.researchAnswers = {};
   state.resources = [];
   state.completedSteps = new Set();
 
